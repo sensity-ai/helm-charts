@@ -80,6 +80,9 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+# licenseKey is provided by sensity and required to run the whole application
+licenseKey: ""
+
 autoscaling:
   enabled: false
   minReplicas: 1

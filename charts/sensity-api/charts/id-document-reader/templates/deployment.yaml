@@ -59,3 +59,12 @@ spec:
               port: api
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: license
+              readOnly: true
+              mountPath: /app/licenses/sensity.license
+              subPath: sensity.license
+      volumes:
+        - name: license
+          secret:
+            secretName: {{ .Chart.Name }}-license
