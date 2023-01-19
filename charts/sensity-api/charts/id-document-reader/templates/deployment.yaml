@@ -68,6 +68,16 @@ spec:
               readOnly: true
               mountPath: /app/licenses/sensity.license
               subPath: sensity.license
+        - name: sidecar
+          image: "europe-west4-docker.pkg.dev/sensity-350013/id-document-reader/id-document-reader-web-api:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - name: license
+              readOnly: true
+              mountPath: /app/licenses/sensity.license
+              subPath: sensity.license
       volumes:
         - name: license
           secret:
