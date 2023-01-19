@@ -60,6 +60,9 @@ spec:
               port: api
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Chart.Name }}-env
           volumeMounts:
             - name: license
               readOnly: true
