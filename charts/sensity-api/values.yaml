@@ -1,5 +1,7 @@
 id-document-reader:
   licenseKey: ""
+  enabled: true
 
 gan-detection:
   licenseKey: ""
+  enabled: true

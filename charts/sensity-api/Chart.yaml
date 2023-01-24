@@ -22,3 +22,12 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.16.0"
+
+dependencies:
+  - name: id-document-reader
+    version: "0.1.0"
+    condition: id-document-reader.enabled
+
+  - name: gan-detection
+    version: "0.1.0"
+    condition: gan-detection.enabled
