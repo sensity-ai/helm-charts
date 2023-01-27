@@ -37,6 +37,10 @@ tolerations: []
 
 affinity: {}
 
+service:
+  type: ClusterIP
+  port: 80
+
 resources: {}
   # If you do want to specify resources such us request a GPU, uncomment the
   # following lines, adjust them as necessary, and remove the curly braces after
