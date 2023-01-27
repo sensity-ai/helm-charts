@@ -1,0 +1,1 @@
+{{ include "sensity-api.ingress" . }}

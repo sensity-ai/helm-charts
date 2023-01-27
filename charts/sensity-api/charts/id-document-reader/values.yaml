@@ -41,6 +41,26 @@ service:
   type: ClusterIP
   port: 80
 
+ingress:
+  enabled: false
+  # className is the ingress class for the web ingress (used only in Kubernetes >=v1.19)
+  className: ""
+  # annotations for the web ingress
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # hosts is the hostnames or host configuration for the web ingress
+  hosts:
+    - host: "*"
+      paths:
+        - path: /id-document-reader
+          pathType: Prefix
+  # tls will enable TLS termination for the web ingress
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
 resources: {}
   # If you do want to specify resources such us request a GPU, uncomment the
   # following lines, adjust them as necessary, and remove the curly braces after
