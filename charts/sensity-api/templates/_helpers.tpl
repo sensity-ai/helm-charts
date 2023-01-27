@@ -59,7 +59,7 @@ data:
   sensity.license: {{ required "A license key must be available" .Values.licenseKey }}
 kind: Secret
 metadata:
-  name: {{ .Chart.Name }}-license
+  name: {{ include "sensity-api.fullname" . }}-license
 {{- end }}
 
 
@@ -108,7 +108,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ include "sensity-api.name" . }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -137,5 +137,5 @@ spec:
       volumes:
         - name: license
           secret:
-            secretName: {{ .Chart.Name }}-license
+            secretName: {{ include "sensity-api.fullname" . }}-license
 {{- end }}
