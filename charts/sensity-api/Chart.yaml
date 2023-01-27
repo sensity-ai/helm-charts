@@ -31,3 +31,7 @@ dependencies:
   - name: gan-detection
     version: "0.1.0"
     condition: gan-detection.enabled
+
+  - name: inference
+    version: "0.1.0"
+    condition: inference.enabled
