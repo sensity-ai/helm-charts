@@ -5,3 +5,7 @@ id-document-reader:
 gan-detection:
   licenseKey: ""
   enabled: true
+
+inference:
+  licenseKey: ""
+  enabled: true

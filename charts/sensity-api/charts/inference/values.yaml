@@ -1,0 +1,52 @@
+replicaCount: 1
+
+image:
+  repository: europe-west4-docker.pkg.dev/sensity-350013/inference/inference
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+
+# licenseKey is provided by sensity and required to run the whole application
+licenseKey: ""
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+resources: {}
+  # If you do want to specify resources such us request a GPU, uncomment the
+  # following lines, adjust them as necessary, and remove the curly braces after
+  # 'resources:'.
+  #
+  # limits:
+  #   cpu: 100m
+  #   nvidia.com/gpu: 1
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   nvidia.com/gpu: 1
+  #   memory: 128Mi
