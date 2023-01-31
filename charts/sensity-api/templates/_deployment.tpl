@@ -17,8 +17,9 @@ spec:
       {{- include "sensity-api.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/env-configmap.yaml") . | sha256sum }}
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
@@ -64,6 +65,9 @@ spec:
               port: api
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "sensity-api.fullname" . }}-env
           volumeMounts:
             - name: license
               readOnly: true
