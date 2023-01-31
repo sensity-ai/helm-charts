@@ -49,9 +49,11 @@ ingress:
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  # hosts is the hostnames or host configuration for the web ingress
+  # hosts is used to configure the hostnames and the path rules for the web ingress
   hosts:
-    - host: "*"
+    # host is used to add a DNS rule to your configuration. Leave it blank to
+    # ignore the rule and accept every hostname
+    - host: ""
       paths:
         - path: /inference
           pathType: Prefix
