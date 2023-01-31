@@ -55,7 +55,7 @@ ingress:
     # ignore the rule and accept every hostname
     - host: ""
       paths:
-        - path: /gan-detection
+        - path: /gan-detection(/|$)(.*)
           pathType: Prefix
   # tls will enable TLS termination for the web ingress
   tls: []

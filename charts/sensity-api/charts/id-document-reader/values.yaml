@@ -55,7 +55,7 @@ ingress:
     # ignore the rule and accept every hostname
     - host: ""
       paths:
-        - path: /id-document-reader
+        - path: /id-document-reader(/|$)(.*)
           pathType: Prefix
   # tls will enable TLS termination for the web ingress
   tls: []
