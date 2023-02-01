@@ -37,6 +37,16 @@ tolerations: []
 
 affinity: {}
 
+# config contains the available configuration for the application
+config:
+  # apiRootPath is the path used to serve the application when running behind a
+  # proxy such us nginx. Define here what prefix of the URL is used by the proxy
+  # to serve the app. The app needs to know what is this prefix so it can serve
+  # successfully the OpenAPI specification. Usually this path is the one you
+  # specify on the rules defined below in the ingress. If you are not using a
+  # proxy, you can leave it blank.
+  apiRootPath: ""
+
 service:
   type: ClusterIP
   port: 80
