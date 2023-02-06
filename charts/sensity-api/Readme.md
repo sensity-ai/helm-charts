@@ -1,5 +1,4 @@
 # Sensity API Helm Chart
----
 
 Sensity is a suite of customizable verification tools including liveness
 detection and face matching, ID documents verification, financial documents
@@ -9,19 +8,16 @@ PDF files.
 
 
 ## Get Repository
----
 
 **TODO**: Setup the repository in GH Pages
 
 ## Prerequisites
----
 
 **TODO**: Describe RAM requested by pod. Find it in GCLoud cluster
 
 - Helm 3
 
 ## Installing the Chart
----
 
 Install the chart with the release name `sensity-api`:
 
@@ -32,7 +28,6 @@ helm upgrade --install sensity-api repo/name
 ```
 
 ## Uninstalling the Chart
----
 
 To uninstall the `sensity-api` chart from your cluster:
 
@@ -57,7 +52,6 @@ helm upgrade --install sensity-api repo/name --set product.enabled=true
 ```
 
 ## Values
----
 
 The following table shows a brief description for the configuration of Sensity
 API and the common values available between products. You will find a more
