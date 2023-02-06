@@ -17,6 +17,17 @@ PDF files.
 
 - Helm 3
 
+- Image pull secret deployed in your cluster to connect Sensity Container
+  registry. Create one with the `key.json` file provided by Sensity.
+
+``` sh
+kubectl create secret docker-registry sensity-registry creds \
+  --docker-server=https://europe-west4-docker.pkg.dev \
+  --docker-username=_json_key_base64 \
+  --docker-password="$(cat /path/to/key.json | base64)"" \
+  --docker-email=oci-oke@sensity-350013.iam.gserviceaccount.com
+```
+
 ## Installing the Chart
 
 Install the chart with the release name `sensity-api`:
