@@ -61,9 +61,7 @@ helm upgrade --install sensity-api repo/name --set product.enabled=true
 
 The following table shows a brief description for the configuration of Sensity
 API and the common values available between products. You will find a more
-extended description of every field in the `values.yaml` of each subchart. Be
-aware that some products have extra configurations. Refer to its Readme.md and
-values file for more information.
+extended description of every field in the `values.yaml` of each subchart.
 
 Moreover, note this configuration is per-product, so you will have to prepend
 the product name before. For example, if you want to configure the
