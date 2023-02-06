@@ -24,7 +24,7 @@ PDF files.
 kubectl create secret docker-registry sensity-registry creds \
   --docker-server=https://europe-west4-docker.pkg.dev \
   --docker-username=_json_key_base64 \
-  --docker-password="$(cat /path/to/key.json | base64)"" \
+  --docker-password="$(cat /path/to/key.json | base64)" \
   --docker-email=oci-oke@sensity-350013.iam.gserviceaccount.com
 ```
 
