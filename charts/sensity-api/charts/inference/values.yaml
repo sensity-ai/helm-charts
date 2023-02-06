@@ -14,6 +14,7 @@ imagePullSecrets: []
 # licenseKey is provided by sensity and required to run the whole application
 licenseKey: ""
 
+# TODO: enable autoscaling with an HorizontalPodAutoscaler
 autoscaling:
   enabled: false
   minReplicas: 1
