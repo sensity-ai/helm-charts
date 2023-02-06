@@ -1,11 +1,14 @@
 replicaCount: 1
 
 image:
+  # repository where the image is located
   repository: europe-west4-docker.pkg.dev/sensity-350013/inference/inference
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+# imagePullSecrets indicate already existing secrets in the cluster which used
+# to log in the container registry and pull the image
 imagePullSecrets: []
 
 # licenseKey is provided by sensity and required to run the whole application
@@ -47,10 +50,12 @@ config:
   # proxy, you can leave it blank.
   apiRootPath: ""
 
+# service is used to configure a kubernetes service for the application
 service:
   type: ClusterIP
   port: 80
 
+# ingress is used to configure the rules used by an ingress controller
 ingress:
   enabled: false
   # className is the ingress class for the web ingress (used only in Kubernetes >=v1.19)
@@ -73,6 +78,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# resources is where you can specify the resources limits and requested by the
+# application.
 resources: {}
   # If you do want to specify resources such us request a GPU, uncomment the
   # following lines, adjust them as necessary, and remove the curly braces after
