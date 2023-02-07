@@ -7,9 +7,12 @@ the trust of a user's identity and the authenticity of their image, video and
 PDF files.
 
 
-## Get Repository
+## Get the Repository
 
-**TODO**: Setup the repository in GH Pages
+``` sh
+helm repo add sensity-ai https://sensity-ai.github.io/helm-charts
+helm repo update
+```
 
 ## Prerequisites
 
@@ -38,10 +41,8 @@ kubectl create secret docker-registry sensity-registry creds \
 
 Install the chart with the release name `sensity-api`:
 
-**TODO**: write the final command pointing to the repository
-
 ``` sh
-helm upgrade --install sensity-api repo/name
+helm upgrade --install sensity-api sensity-ai/sensity-api
 ```
 
 ## Uninstalling the Chart
