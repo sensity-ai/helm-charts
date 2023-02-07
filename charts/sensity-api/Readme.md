@@ -13,8 +13,6 @@ PDF files.
 
 ## Prerequisites
 
-**TODO**: Describe RAM requested by pod. Find it in GCLoud cluster
-
 - Helm 3
 
 - Image pull secret deployed in your cluster to connect Sensity Container
@@ -27,6 +25,14 @@ kubectl create secret docker-registry sensity-registry creds \
   --docker-password="$(cat /path/to/key.json | base64)" \
   --docker-email=oci-oke@sensity-350013.iam.gserviceaccount.com
 ```
+
+- Minimum memory resources per product:
+
+  - GAN Detection: 2GB
+  
+  - ID Document Reader: 8GB
+  
+  - Inference: 8GB
 
 ## Installing the Chart
 
