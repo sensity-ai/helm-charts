@@ -1,0 +1,24 @@
+apiVersion: v2
+name: sensity-api
+home: https://sensity.ai/
+version: 0.1.0
+appVersion: "v2.7.12"
+description: Suite of customizable verification tools to score the authenticity and identity of a user.
+keywords:
+  - sensity
+  - deepfake
+  - kyc
+dependencies:
+  - name: id-document-reader
+    version: "0.1.0"
+    condition: id-document-reader.enabled
+
+  - name: gan-detection
+    version: "0.1.0"
+    condition: gan-detection.enabled
+
+  - name: inference
+    version: "0.1.0"
+    condition: inference.enabled
+
+type: application

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "sensity-api.fullname" . }}-env
+data:
+  {{- include "sensity-api.config" . | nindent 2 }}
+  API_URL: "http://localhost:8080"

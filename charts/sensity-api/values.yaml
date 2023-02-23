@@ -1,0 +1,11 @@
+id-document-reader:
+  licenseKey: ""
+  enabled: true
+
+gan-detection:
+  licenseKey: ""
+  enabled: true
+
+inference:
+  licenseKey: ""
+  enabled: true

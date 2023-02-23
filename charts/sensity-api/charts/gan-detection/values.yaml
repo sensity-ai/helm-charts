@@ -1,0 +1,94 @@
+replicaCount: 1
+
+image:
+  # repository where the image is located
+  repository: europe-west4-docker.pkg.dev/sensity-350013/gan-detection/gan-detection
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+# imagePullSecrets indicate already existing secrets in the cluster which used
+# to log in the container registry and pull the image
+imagePullSecrets: []
+
+# licenseKey is provided by sensity and required to run the whole application
+licenseKey: ""
+
+# TODO: enable autoscaling with an HorizontalPodAutoscaler
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# config contains the available configuration for the application
+config:
+  # apiRootPath is the path used to serve the application when running behind a
+  # proxy such us nginx. Define here what prefix of the URL is used by the proxy
+  # to serve the app. The app needs to know what is this prefix so it can serve
+  # successfully the OpenAPI specification. Usually this path is the one you
+  # specify on the rules defined below in the ingress. If you are not using a
+  # proxy, you can leave it blank.
+  apiRootPath: ""
+
+# service is used to configure a kubernetes service for the application
+service:
+  type: ClusterIP
+  port: 80
+
+# ingress is used to configure the rules used by an ingress controller
+ingress:
+  enabled: false
+  # className is the ingress class for the web ingress (used only in Kubernetes >=v1.19)
+  className: ""
+  # annotations for the web ingress
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # hosts is used to configure the hostnames and the path rules for the web ingress
+  hosts:
+    # host is used to add a DNS rule to your configuration. Leave it blank to
+    # ignore the rule and accept every hostname
+    - host: ""
+      paths:
+        - path: /gan-detection(/|$)(.*)
+          pathType: Prefix
+  # tls will enable TLS termination for the web ingress
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# resources is where you can specify the resources limits and requested by the
+# application.
+resources: {}
+  # If you do want to specify resources such us request a GPU, uncomment the
+  # following lines, adjust them as necessary, and remove the curly braces after
+  # 'resources:'.
+  #
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
