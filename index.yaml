@@ -1,0 +1,27 @@
+apiVersion: v1
+entries:
+  sensity-api:
+  - apiVersion: v2
+    appVersion: v2.7.12
+    created: "2023-02-23T09:41:06.268454437Z"
+    dependencies:
+    - condition: id-document-reader.enabled
+      name: id-document-reader
+      repository: ""
+      version: 0.1.0
+    - condition: gan-detection.enabled
+      name: gan-detection
+      repository: ""
+      version: 0.1.0
+    - condition: inference.enabled
+      name: inference
+      repository: ""
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 1498c794ed2c0e20dc31147c31ab350ce15142ef06e4bf9fe518c7ef13615a6e
+    name: sensity-api
+    type: application
+    urls:
+    - https://github.com/sensity-ai/helm-charts/releases/download/sensity-api-0.1.0/sensity-api-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-02-23T09:41:06.268801461Z"
